@@ -14,6 +14,13 @@
 		772568E82AF57AF500B1A71B /* FetchCodingChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772568E72AF57AF500B1A71B /* FetchCodingChallengeTests.swift */; };
 		772568F22AF57AF500B1A71B /* FetchCodingChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772568F12AF57AF500B1A71B /* FetchCodingChallengeUITests.swift */; };
 		772568F42AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772568F32AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift */; };
+		777BD95F2AF6CF4B00EB56CC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD95E2AF6CF4B00EB56CC /* Kingfisher */; };
+		777BD9622AF6CF9500EB56CC /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9612AF6CF9500EB56CC /* OHHTTPStubs */; };
+		777BD9642AF6CF9500EB56CC /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9632AF6CF9500EB56CC /* OHHTTPStubsSwift */; };
+		777BD96B2AF6D0B400EB56CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777BD9692AF6D05200EB56CC /* XCTest.framework */; platformFilter = ios; };
+		777BD96C2AF6D0BD00EB56CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777BD9692AF6D05200EB56CC /* XCTest.framework */; platformFilter = ios; };
+		777BD9722AF6D45C00EB56CC /* Cuckoo in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9712AF6D45C00EB56CC /* Cuckoo */; };
+		777BD9742AF6D46100EB56CC /* Cuckoo in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9732AF6D46100EB56CC /* Cuckoo */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,7 @@
 		772568ED2AF57AF500B1A71B /* FetchCodingChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchCodingChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		772568F12AF57AF500B1A71B /* FetchCodingChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCodingChallengeUITests.swift; sourceTree = "<group>"; };
 		772568F32AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCodingChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		777BD9692AF6D05200EB56CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777BD95F2AF6CF4B00EB56CC /* Kingfisher in Frameworks */,
+				777BD9642AF6CF9500EB56CC /* OHHTTPStubsSwift in Frameworks */,
+				777BD9622AF6CF9500EB56CC /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777BD9722AF6D45C00EB56CC /* Cuckoo in Frameworks */,
+				777BD96B2AF6D0B400EB56CC /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777BD9742AF6D46100EB56CC /* Cuckoo in Frameworks */,
+				777BD96C2AF6D0BD00EB56CC /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +93,7 @@
 				772568E62AF57AF500B1A71B /* FetchCodingChallengeTests */,
 				772568F02AF57AF500B1A71B /* FetchCodingChallengeUITests */,
 				772568D42AF57AF400B1A71B /* Products */,
+				777BD9682AF6D05100EB56CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +143,14 @@
 			path = FetchCodingChallengeUITests;
 			sourceTree = "<group>";
 		};
+		777BD9682AF6D05100EB56CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				777BD9692AF6D05200EB56CC /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +167,11 @@
 			dependencies = (
 			);
 			name = FetchCodingChallenge;
+			packageProductDependencies = (
+				777BD95E2AF6CF4B00EB56CC /* Kingfisher */,
+				777BD9612AF6CF9500EB56CC /* OHHTTPStubs */,
+				777BD9632AF6CF9500EB56CC /* OHHTTPStubsSwift */,
+			);
 			productName = FetchCodingChallenge;
 			productReference = 772568D32AF57AF400B1A71B /* FetchCodingChallenge.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +190,9 @@
 				772568E52AF57AF500B1A71B /* PBXTargetDependency */,
 			);
 			name = FetchCodingChallengeTests;
+			packageProductDependencies = (
+				777BD9712AF6D45C00EB56CC /* Cuckoo */,
+			);
 			productName = FetchCodingChallengeTests;
 			productReference = 772568E32AF57AF500B1A71B /* FetchCodingChallengeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -179,6 +211,9 @@
 				772568EF2AF57AF500B1A71B /* PBXTargetDependency */,
 			);
 			name = FetchCodingChallengeUITests;
+			packageProductDependencies = (
+				777BD9732AF6D46100EB56CC /* Cuckoo */,
+			);
 			productName = FetchCodingChallengeUITests;
 			productReference = 772568ED2AF57AF500B1A71B /* FetchCodingChallengeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -215,6 +250,11 @@
 				Base,
 			);
 			mainGroup = 772568CA2AF57AF400B1A71B;
+			packageReferences = (
+				777BD95D2AF6CF4B00EB56CC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				777BD9602AF6CF9500EB56CC /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+				777BD96D2AF6D22A00EB56CC /* XCRemoteSwiftPackageReference "Cuckoo" */,
+			);
 			productRefGroup = 772568D42AF57AF400B1A71B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -583,6 +623,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		777BD95D2AF6CF4B00EB56CC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		777BD9602AF6CF9500EB56CC /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		777BD96D2AF6D22A00EB56CC /* XCRemoteSwiftPackageReference "Cuckoo" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Brightify/Cuckoo.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		777BD95E2AF6CF4B00EB56CC /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 777BD95D2AF6CF4B00EB56CC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		777BD9612AF6CF9500EB56CC /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 777BD9602AF6CF9500EB56CC /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
+		777BD9632AF6CF9500EB56CC /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 777BD9602AF6CF9500EB56CC /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
+		777BD9712AF6D45C00EB56CC /* Cuckoo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 777BD96D2AF6D22A00EB56CC /* XCRemoteSwiftPackageReference "Cuckoo" */;
+			productName = Cuckoo;
+		};
+		777BD9732AF6D46100EB56CC /* Cuckoo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 777BD96D2AF6D22A00EB56CC /* XCRemoteSwiftPackageReference "Cuckoo" */;
+			productName = Cuckoo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 772568CB2AF57AF400B1A71B /* Project object */;
 }
