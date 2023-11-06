@@ -20,7 +20,6 @@ class MealDetail: MealDetailProtocol {
         return idMeal
     }
     
-    // Assume this initializer exists to satisfy the protocol conformance
     required init(idMeal: String, strMeal: String?, strInstructions: String?, strMealThumb: String?, strTags: String?, strYoutube: String?, strSource: String?, ingredients: [Ingredient]?) {
         self.idMeal = idMeal
         self.strMeal = strMeal
@@ -37,7 +36,6 @@ class Ingredient: IngredientProtocol {
     let name: String?
     let measurement: String?
     
-    // Assume this initializer exists to satisfy the protocol conformance
     required init(name: String?, measurement: String?) {
         self.name = name
         self.measurement = measurement
