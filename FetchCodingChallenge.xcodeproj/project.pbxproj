@@ -13,6 +13,8 @@
 		772568DE2AF57AF500B1A71B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 772568DD2AF57AF500B1A71B /* Preview Assets.xcassets */; };
 		772568F22AF57AF500B1A71B /* FetchCodingChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772568F12AF57AF500B1A71B /* FetchCodingChallengeUITests.swift */; };
 		772568F42AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772568F32AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift */; };
+		774C748F2AF9913200133873 /* MealRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C748E2AF9913200133873 /* MealRepositoryProtocol.swift */; };
+		774C74922AF9919300133873 /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C74912AF9919300133873 /* MealRepository.swift */; };
 		777BD95F2AF6CF4B00EB56CC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD95E2AF6CF4B00EB56CC /* Kingfisher */; };
 		777BD9622AF6CF9500EB56CC /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9612AF6CF9500EB56CC /* OHHTTPStubs */; };
 		777BD9642AF6CF9500EB56CC /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9632AF6CF9500EB56CC /* OHHTTPStubsSwift */; };
@@ -54,6 +56,8 @@
 		772568ED2AF57AF500B1A71B /* FetchCodingChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchCodingChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		772568F12AF57AF500B1A71B /* FetchCodingChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCodingChallengeUITests.swift; sourceTree = "<group>"; };
 		772568F32AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCodingChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		774C748E2AF9913200133873 /* MealRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepositoryProtocol.swift; sourceTree = "<group>"; };
+		774C74912AF9919300133873 /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
 		777BD9692AF6D05200EB56CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		777BD9772AF6DD4100EB56CC /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		777BD97B2AF6E05000EB56CC /* MealSummaryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummaryProtocol.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 		772568D52AF57AF400B1A71B /* FetchCodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				774C74902AF9917D00133873 /* Repositories */,
 				777BD9792AF6DD7700EB56CC /* Protocols */,
 				777BD9752AF6D57A00EB56CC /* Models */,
 				772568D62AF57AF400B1A71B /* FetchCodingChallengeApp.swift */,
@@ -153,6 +158,22 @@
 			path = FetchCodingChallengeUITests;
 			sourceTree = "<group>";
 		};
+		774C748D2AF9911800133873 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				774C748E2AF9913200133873 /* MealRepositoryProtocol.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		774C74902AF9917D00133873 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				774C74912AF9919300133873 /* MealRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		777BD9682AF6D05100EB56CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +194,7 @@
 		777BD9792AF6DD7700EB56CC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				774C748D2AF9911800133873 /* Repositories */,
 				777BD97A2AF6E03600EB56CC /* Models */,
 			);
 			path = Protocols;
@@ -333,11 +355,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774C748F2AF9913200133873 /* MealRepositoryProtocol.swift in Sources */,
 				777BD97C2AF6E05000EB56CC /* MealSummaryProtocol.swift in Sources */,
 				777BD97E2AF6E06200EB56CC /* MealSummary.swift in Sources */,
 				772568D92AF57AF400B1A71B /* ContentView.swift in Sources */,
 				777BD9822AF6E0FC00EB56CC /* MealDetail.swift in Sources */,
 				777BD9802AF6E0C600EB56CC /* MealDetailProtocol.swift in Sources */,
+				774C74922AF9919300133873 /* MealRepository.swift in Sources */,
 				772568D72AF57AF400B1A71B /* FetchCodingChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
