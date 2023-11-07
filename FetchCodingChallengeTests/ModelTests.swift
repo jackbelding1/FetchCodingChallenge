@@ -10,6 +10,7 @@ import XCTest
 
 class ModelTests: XCTestCase {
     
+    // Test MealSummary Decoding
     func testMealSummaryDecoding() {
         let json = """
         {
@@ -30,7 +31,7 @@ class ModelTests: XCTestCase {
         }
     }
 
-
+    // Test MealDetail Decoding
     func testMealDetailDecoding() {
         let json = """
         {
@@ -41,10 +42,10 @@ class ModelTests: XCTestCase {
             "strTags": "Test,Tags",
             "strYoutube": "https://youtube.com",
             "strSource": "https://source.com",
-            "ingredients": [
-                {"name": "Test Ingredient 1", "measurement": "1 cup"},
-                {"name": "Test Ingredient 2", "measurement": "2 tsp"}
-            ]
+            "ingredients": {
+                "Test Ingredient 1": "1 cup",
+                "Test Ingredient 2": "2 tsp"
+            }
         }
         """.data(using: .utf8)!
 
@@ -59,30 +60,11 @@ class ModelTests: XCTestCase {
             XCTAssertEqual(mealDetail.strYoutube, "https://youtube.com")
             XCTAssertEqual(mealDetail.strSource, "https://source.com")
             XCTAssertEqual(mealDetail.ingredients?.count, 2)
-            XCTAssertEqual(mealDetail.ingredients?[0].name, "Test Ingredient 1")
-            XCTAssertEqual(mealDetail.ingredients?[0].measurement, "1 cup")
-            XCTAssertEqual(mealDetail.ingredients?[1].name, "Test Ingredient 2")
-            XCTAssertEqual(mealDetail.ingredients?[1].measurement, "2 tsp")
+            XCTAssertEqual(mealDetail.ingredients?["Test Ingredient 1"], "1 cup")
+            XCTAssertEqual(mealDetail.ingredients?["Test Ingredient 2"], "2 tsp")
         } catch {
             XCTFail("Decoding failed with error: \(error)")
         }
     }
 
-    func testIngredientDecoding() {
-        let json = """
-        {
-            "name": "Test Ingredient",
-            "measurement": "1 cup"
-        }
-        """.data(using: .utf8)!
-
-        let decoder = JSONDecoder()
-        do {
-            let ingredient = try decoder.decode(Ingredient.self, from: json)
-            XCTAssertEqual(ingredient.name, "Test Ingredient")
-            XCTAssertEqual(ingredient.measurement, "1 cup")
-        } catch {
-            XCTFail("Decoding failed with error: \(error)")
-        }
-    }
 }

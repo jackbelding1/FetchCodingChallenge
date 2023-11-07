@@ -8,6 +8,6 @@
 import Foundation
 
 protocol MealRepositoryProtocol {
-    func fetchMealSummaries(completion: @escaping (Result<[MealSummary], Error>) -> Void)
-    func fetchMealDetail(forId id: String, completion: @escaping (Result<MealDetail, Error>) -> Void)
+    func fetchMealSummaries(completion: @escaping (Result<[any MealSummaryProtocol], Error>) -> Void)
+    func fetchMealDetail(forId id: String, completion: @escaping (Result<any MealDetailProtocol, Error>) -> Void)
 }

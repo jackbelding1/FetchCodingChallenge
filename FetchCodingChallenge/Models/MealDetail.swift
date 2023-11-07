@@ -14,13 +14,13 @@ class MealDetail: MealDetailProtocol {
     let strTags: String?
     let strYoutube: String?
     let strSource: String?
-    let ingredients: [Ingredient]?
+    let ingredients: [String : String]?
 
     var id: String {
         return idMeal
     }
     
-    required init(idMeal: String, strMeal: String?, strInstructions: String?, strMealThumb: String?, strTags: String?, strYoutube: String?, strSource: String?, ingredients: [Ingredient]?) {
+    required init(idMeal: String, strMeal: String?, strInstructions: String?, strMealThumb: String?, strTags: String?, strYoutube: String?, strSource: String?, ingredients: [String : String]?) {
         self.idMeal = idMeal
         self.strMeal = strMeal
         self.strInstructions = strInstructions
@@ -29,15 +29,5 @@ class MealDetail: MealDetailProtocol {
         self.strYoutube = strYoutube
         self.strSource = strSource
         self.ingredients = ingredients
-    }
-}
-
-class Ingredient: IngredientProtocol {
-    let name: String?
-    let measurement: String?
-    
-    required init(name: String?, measurement: String?) {
-        self.name = name
-        self.measurement = measurement
     }
 }

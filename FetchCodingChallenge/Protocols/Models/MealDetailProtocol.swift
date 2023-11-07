@@ -14,10 +14,5 @@ protocol MealDetailProtocol: Codable, Identifiable {
     var strTags: String? { get }
     var strYoutube: String? { get }
     var strSource: String? { get }
-    var ingredients: [Ingredient]? { get }
-}
-
-protocol IngredientProtocol: Codable {
-    var name: String? { get }
-    var measurement: String? { get }
+    var ingredients: [String : String]? { get }
 }

@@ -15,13 +15,19 @@
 		772568F42AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772568F32AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift */; };
 		774C748F2AF9913200133873 /* MealRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C748E2AF9913200133873 /* MealRepositoryProtocol.swift */; };
 		774C74922AF9919300133873 /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C74912AF9919300133873 /* MealRepository.swift */; };
+		776BB80B2AF9952E00742E82 /* MealSummaryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB80A2AF9952E00742E82 /* MealSummaryViewModelProtocol.swift */; };
+		776BB80E2AF9954B00742E82 /* MealSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB80D2AF9954B00742E82 /* MealSummaryViewModel.swift */; };
+		776BB8112AF995D900742E82 /* MealSummaryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB8102AF995D900742E82 /* MealSummaryViewModelTests.swift */; };
+		776BB82E2AF9AB9C00742E82 /* MockMealSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB82D2AF9AB9C00742E82 /* MockMealSummary.swift */; };
+		776BB8312AF9ABCD00742E82 /* MockMealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB8302AF9ABCD00742E82 /* MockMealDetail.swift */; };
+		776BB8352AF9ADC600742E82 /* MockMealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB8342AF9ADC600742E82 /* MockMealRepository.swift */; };
+		776BB8392AF9BB7600742E82 /* MockMealSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB8382AF9BB7600742E82 /* MockMealSummaryViewModel.swift */; };
+		776BB83A2AF9BB7600742E82 /* MockMealSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB8382AF9BB7600742E82 /* MockMealSummaryViewModel.swift */; };
 		777BD95F2AF6CF4B00EB56CC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD95E2AF6CF4B00EB56CC /* Kingfisher */; };
 		777BD9622AF6CF9500EB56CC /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9612AF6CF9500EB56CC /* OHHTTPStubs */; };
 		777BD9642AF6CF9500EB56CC /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9632AF6CF9500EB56CC /* OHHTTPStubsSwift */; };
 		777BD96B2AF6D0B400EB56CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777BD9692AF6D05200EB56CC /* XCTest.framework */; platformFilter = ios; };
 		777BD96C2AF6D0BD00EB56CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777BD9692AF6D05200EB56CC /* XCTest.framework */; platformFilter = ios; };
-		777BD9722AF6D45C00EB56CC /* Cuckoo in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9712AF6D45C00EB56CC /* Cuckoo */; };
-		777BD9742AF6D46100EB56CC /* Cuckoo in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9732AF6D46100EB56CC /* Cuckoo */; };
 		777BD9782AF6DD4100EB56CC /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BD9772AF6DD4100EB56CC /* ModelTests.swift */; };
 		777BD97C2AF6E05000EB56CC /* MealSummaryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BD97B2AF6E05000EB56CC /* MealSummaryProtocol.swift */; };
 		777BD97E2AF6E06200EB56CC /* MealSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BD97D2AF6E06200EB56CC /* MealSummary.swift */; };
@@ -58,6 +64,13 @@
 		772568F32AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCodingChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		774C748E2AF9913200133873 /* MealRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepositoryProtocol.swift; sourceTree = "<group>"; };
 		774C74912AF9919300133873 /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
+		776BB80A2AF9952E00742E82 /* MealSummaryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummaryViewModelProtocol.swift; sourceTree = "<group>"; };
+		776BB80D2AF9954B00742E82 /* MealSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummaryViewModel.swift; sourceTree = "<group>"; };
+		776BB8102AF995D900742E82 /* MealSummaryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummaryViewModelTests.swift; sourceTree = "<group>"; };
+		776BB82D2AF9AB9C00742E82 /* MockMealSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMealSummary.swift; sourceTree = "<group>"; };
+		776BB8302AF9ABCD00742E82 /* MockMealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMealDetail.swift; sourceTree = "<group>"; };
+		776BB8342AF9ADC600742E82 /* MockMealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMealRepository.swift; sourceTree = "<group>"; };
+		776BB8382AF9BB7600742E82 /* MockMealSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMealSummaryViewModel.swift; sourceTree = "<group>"; };
 		777BD9692AF6D05200EB56CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		777BD9772AF6DD4100EB56CC /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		777BD97B2AF6E05000EB56CC /* MealSummaryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummaryProtocol.swift; sourceTree = "<group>"; };
@@ -81,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777BD9722AF6D45C00EB56CC /* Cuckoo in Frameworks */,
 				777BD96B2AF6D0B400EB56CC /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,7 +102,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777BD9742AF6D46100EB56CC /* Cuckoo in Frameworks */,
 				777BD96C2AF6D0BD00EB56CC /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +133,7 @@
 		772568D52AF57AF400B1A71B /* FetchCodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				776BB80C2AF9954000742E82 /* ViewModels */,
 				774C74902AF9917D00133873 /* Repositories */,
 				777BD9792AF6DD7700EB56CC /* Protocols */,
 				777BD9752AF6D57A00EB56CC /* Models */,
@@ -144,6 +156,8 @@
 		772568E62AF57AF500B1A71B /* FetchCodingChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				776BB82B2AF9AA9900742E82 /* Mocks */,
+				776BB80F2AF995B300742E82 /* ViewModelTests */,
 				777BD9772AF6DD4100EB56CC /* ModelTests.swift */,
 			);
 			path = FetchCodingChallengeTests;
@@ -174,6 +188,65 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		776BB8092AF9951D00742E82 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				776BB80A2AF9952E00742E82 /* MealSummaryViewModelProtocol.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		776BB80C2AF9954000742E82 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				776BB80D2AF9954B00742E82 /* MealSummaryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		776BB80F2AF995B300742E82 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				776BB8102AF995D900742E82 /* MealSummaryViewModelTests.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		776BB82B2AF9AA9900742E82 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				776BB8372AF9BB2900742E82 /* ViewModels */,
+				776BB8332AF9AD8D00742E82 /* Repositories */,
+				776BB82C2AF9AAA900742E82 /* Models */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		776BB82C2AF9AAA900742E82 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				776BB82D2AF9AB9C00742E82 /* MockMealSummary.swift */,
+				776BB8302AF9ABCD00742E82 /* MockMealDetail.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		776BB8332AF9AD8D00742E82 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				776BB8342AF9ADC600742E82 /* MockMealRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		776BB8372AF9BB2900742E82 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				776BB8382AF9BB7600742E82 /* MockMealSummaryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		777BD9682AF6D05100EB56CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +267,7 @@
 		777BD9792AF6DD7700EB56CC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				776BB8092AF9951D00742E82 /* ViewModels */,
 				774C748D2AF9911800133873 /* Repositories */,
 				777BD97A2AF6E03600EB56CC /* Models */,
 			);
@@ -249,7 +323,6 @@
 			);
 			name = FetchCodingChallengeTests;
 			packageProductDependencies = (
-				777BD9712AF6D45C00EB56CC /* Cuckoo */,
 			);
 			productName = FetchCodingChallengeTests;
 			productReference = 772568E32AF57AF500B1A71B /* FetchCodingChallengeTests.xctest */;
@@ -270,7 +343,6 @@
 			);
 			name = FetchCodingChallengeUITests;
 			packageProductDependencies = (
-				777BD9732AF6D46100EB56CC /* Cuckoo */,
 			);
 			productName = FetchCodingChallengeUITests;
 			productReference = 772568ED2AF57AF500B1A71B /* FetchCodingChallengeUITests.xctest */;
@@ -311,7 +383,7 @@
 			packageReferences = (
 				777BD95D2AF6CF4B00EB56CC /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				777BD9602AF6CF9500EB56CC /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
-				777BD96D2AF6D22A00EB56CC /* XCRemoteSwiftPackageReference "Cuckoo" */,
+				776BB8242AF9AA5700742E82 /* XCRemoteSwiftPackageReference "SwiftMock" */,
 			);
 			productRefGroup = 772568D42AF57AF400B1A71B /* Products */;
 			projectDirPath = "";
@@ -359,7 +431,9 @@
 				777BD97C2AF6E05000EB56CC /* MealSummaryProtocol.swift in Sources */,
 				777BD97E2AF6E06200EB56CC /* MealSummary.swift in Sources */,
 				772568D92AF57AF400B1A71B /* ContentView.swift in Sources */,
+				776BB80E2AF9954B00742E82 /* MealSummaryViewModel.swift in Sources */,
 				777BD9822AF6E0FC00EB56CC /* MealDetail.swift in Sources */,
+				776BB80B2AF9952E00742E82 /* MealSummaryViewModelProtocol.swift in Sources */,
 				777BD9802AF6E0C600EB56CC /* MealDetailProtocol.swift in Sources */,
 				774C74922AF9919300133873 /* MealRepository.swift in Sources */,
 				772568D72AF57AF400B1A71B /* FetchCodingChallengeApp.swift in Sources */,
@@ -370,7 +444,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				776BB8112AF995D900742E82 /* MealSummaryViewModelTests.swift in Sources */,
+				776BB82E2AF9AB9C00742E82 /* MockMealSummary.swift in Sources */,
 				777BD9782AF6DD4100EB56CC /* ModelTests.swift in Sources */,
+				776BB8312AF9ABCD00742E82 /* MockMealDetail.swift in Sources */,
+				776BB8392AF9BB7600742E82 /* MockMealSummaryViewModel.swift in Sources */,
+				776BB8352AF9ADC600742E82 /* MockMealRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				772568F22AF57AF500B1A71B /* FetchCodingChallengeUITests.swift in Sources */,
+				776BB83A2AF9BB7600742E82 /* MockMealSummaryViewModel.swift in Sources */,
 				772568F42AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,6 +769,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		776BB8242AF9AA5700742E82 /* XCRemoteSwiftPackageReference "SwiftMock" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mflint/SwiftMock.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		777BD95D2AF6CF4B00EB56CC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -703,14 +791,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 9.0.0;
-			};
-		};
-		777BD96D2AF6D22A00EB56CC /* XCRemoteSwiftPackageReference "Cuckoo" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Brightify/Cuckoo.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.9.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -730,16 +810,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 777BD9602AF6CF9500EB56CC /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
 			productName = OHHTTPStubsSwift;
-		};
-		777BD9712AF6D45C00EB56CC /* Cuckoo */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 777BD96D2AF6D22A00EB56CC /* XCRemoteSwiftPackageReference "Cuckoo" */;
-			productName = Cuckoo;
-		};
-		777BD9732AF6D46100EB56CC /* Cuckoo */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 777BD96D2AF6D22A00EB56CC /* XCRemoteSwiftPackageReference "Cuckoo" */;
-			productName = Cuckoo;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
