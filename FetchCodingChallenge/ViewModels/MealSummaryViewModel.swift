@@ -27,13 +27,13 @@ class MealSummaryViewModel: MealSummaryViewModelProtocol, ObservableObject {
         
         repository.fetchMealSummaries { [weak self] result in
             DispatchQueue.main.async {
-                self?.isLoading = false
                 switch result {
                 case .success(let summaries):
                     self?.mealSummaries = summaries
                 case .failure(let error):
                     self?.errorMessage = error.localizedDescription
                 }
+                self?.isLoading = false
             }
         }
     }
