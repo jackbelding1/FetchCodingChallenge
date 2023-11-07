@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Network Error
 
 enum NetworkError: Error {
-    case badURL, requestFailed, unknown
+    case badURL, requestFailed, noData, parsingFailed, unknown
 }
 
 // MARK: - Meal Repository Protocol
@@ -24,8 +24,7 @@ class MealRepository: MealRepositoryProtocol {
         self.session = session
     }
 
-    // Method to fetch meal summaries
-    func fetchMealSummaries(completion: @escaping (Result<[MealSummary], Error>) -> Void) {
+    func fetchMealSummaries(completion: @escaping (Result<[any MealSummaryProtocol], Error>) -> Void) {
         let urlString = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.badURL))
@@ -39,13 +38,15 @@ class MealRepository: MealRepositoryProtocol {
             }
 
             guard let data = data else {
-                completion(.failure(NetworkError.requestFailed))
+                completion(.failure(NetworkError.noData))
                 return
             }
 
             do {
                 let response = try JSONDecoder().decode(MealSummariesResponse.self, from: data)
-                completion(.success(response.meals))
+                // Map the decoded meals to protocol type
+                let protocolMeals = response.meals.map { $0 as any MealSummaryProtocol }
+                completion(.success(protocolMeals))
             } catch {
                 completion(.failure(error))
             }
@@ -54,8 +55,7 @@ class MealRepository: MealRepositoryProtocol {
         task.resume()
     }
 
-    // Method to fetch meal detail
-    func fetchMealDetail(forId id: String, completion: @escaping (Result<MealDetail, Error>) -> Void) {
+    func fetchMealDetail(forId id: String, completion: @escaping (Result<any MealDetailProtocol, Error>) -> Void) {
         let urlString = "https://themealdb.com/api/json/v1/1/lookup.php?i=\(id)"
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.badURL))
@@ -69,17 +69,18 @@ class MealRepository: MealRepositoryProtocol {
             }
 
             guard let data = data else {
-                completion(.failure(NetworkError.requestFailed))
+                completion(.failure(NetworkError.noData))
                 return
             }
 
             do {
                 let response = try JSONDecoder().decode(MealDetailsResponse.self, from: data)
                 // Assuming the JSON has a "meals" key that contains an array of MealDetail
-                if let mealDetail = response.meals.first {
+                // Map the decoded meals to protocol type
+                if let mealDetail = response.meals.first as? any MealDetailProtocol {
                     completion(.success(mealDetail))
                 } else {
-                    completion(.failure(NetworkError.unknown))
+                    completion(.failure(NetworkError.parsingFailed))
                 }
             } catch {
                 completion(.failure(error))
