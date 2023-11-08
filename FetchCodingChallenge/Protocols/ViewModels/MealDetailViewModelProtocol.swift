@@ -8,8 +8,9 @@
 import Foundation
 
 protocol MealDetailViewModelProtocol: AnyObject {
-    var mealDetail: any MealDetailProtocol { get }
-    func openLink(_ url: String)
-    var error: Error? { get }
+    var mealDetail: (any MealDetailProtocol)? { get }
+    var isLoading: Bool { get }
+    var errorMessage: String? { get }
     
+    func loadMealDetail()
 }

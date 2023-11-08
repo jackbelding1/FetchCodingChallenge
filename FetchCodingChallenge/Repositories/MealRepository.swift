@@ -97,6 +97,6 @@ struct MealSummariesResponse: Codable {
     let meals: [MealSummary]
 }
 
-struct MealDetailsResponse: Codable {
+struct MealDetailsResponse: Decodable {
     let meals: [MealDetail]
 }

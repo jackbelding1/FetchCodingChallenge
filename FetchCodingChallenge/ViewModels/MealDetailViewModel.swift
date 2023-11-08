@@ -10,29 +10,37 @@ import Foundation
 
 import UIKit
 
-class MealDetailViewModel: MealDetailViewModelProtocol {
+class MealDetailViewModel: MealDetailViewModelProtocol, ObservableObject {
+    
     // MARK: - Properties
-    @Published var error: Error?
-    @Published var mealDetail: any MealDetailProtocol
+    @Published var isLoading = false
+    @Published var errorMessage: String?
+    @Published var mealDetail: (any MealDetailProtocol)?
+    
+    private let repository: MealRepositoryProtocol
+    private let mealID: String
     
     // MARK: - Initialization
     
-    init(mealDetail: any MealDetailProtocol) {
-        self.mealDetail = mealDetail
+    init(repository: MealRepositoryProtocol, mealID: String) {
+        self.repository = repository
+        self.mealID = mealID
+        loadMealDetail()
     }
     
     // MARK: - Actions
     
-    func openLink(_ urlString: String) {
-        guard let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) else {
-            error = URLError(.badURL)
-            return
-        }
-        
-        // Attempt to open the URL
-        UIApplication.shared.open(url) { success in
-            if !success {
-                self.error = URLError(.cannotOpenFile)
+    func loadMealDetail() {
+        isLoading = true
+        repository.fetchMealDetail(forId: mealID) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let detail):
+                    self?.mealDetail = detail
+                case .failure(let error):
+                    self?.errorMessage = error.localizedDescription
+                }
+                self?.isLoading = false
             }
         }
     }

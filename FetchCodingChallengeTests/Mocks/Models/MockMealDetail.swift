@@ -17,10 +17,10 @@ class MockMealDetail: MealDetailProtocol {
     var strTags: String?
     var strYoutube: String?
     var strSource: String?
-    var ingredients: [String : String]?
+    var ingredients: [Ingredient]
 
     init(idMeal: String, strMeal: String?, strInstructions: String?, strMealThumb: String?,
-         strTags: String?, strYoutube: String?, strSource: String?, ingredients: [String : String]?) {
+         strTags: String?, strYoutube: String?, strSource: String?, ingredients: [Ingredient]) {
         self.idMeal = idMeal
         self.strMeal = strMeal
         self.strInstructions = strInstructions
@@ -31,4 +31,3 @@ class MockMealDetail: MealDetailProtocol {
         self.ingredients = ingredients
     }
 }
-

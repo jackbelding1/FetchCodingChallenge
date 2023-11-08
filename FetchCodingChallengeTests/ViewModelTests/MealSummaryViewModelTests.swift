@@ -66,16 +66,21 @@ class MealSummaryViewModelTests: XCTestCase {
     }
     
     func testLoadMealDetailSuccess() {
-        // Create a mock meal detail conforming to the protocol
-        let mockMealDetail = MockMealDetail(
+        // Provide mock data for meal detail
+        let mockIngredients = [
+            Ingredient(name: "Ingredient1", measurement: "1 cup"),
+            // Add more mock ingredients as needed
+        ]
+
+        let mockDetail = MockMealDetail(
             idMeal: "1",
-            strMeal: "Mock Meal Detail",
-            strInstructions: "Some instructions",
-            strMealThumb: "MockDetailThumbURL",
-            strTags: "Tag1,Tag2",
-            strYoutube: "MockYoutubeURL",
-            strSource: "MockSourceURL",
-            ingredients: ["Ingredient1": "1 cup", "Ingredient2": "2 tsp"]
+            strMeal: "Mock Meal",
+            strInstructions: "Mock Instructions",
+            strMealThumb: "mockThumbURL",
+            strTags: "Mock Tags",
+            strYoutube: "mockYoutubeURL",
+            strSource: "mockSourceURL",
+            ingredients: mockIngredients
         )
         
         // Stub the repository to simulate a successful fetch with the mock data
@@ -118,4 +123,25 @@ class MealSummaryViewModelTests: XCTestCase {
         
         waitForExpectations(timeout: 5)
     }
+    
+    func testSortedMealSummaries() {
+        // Arrange
+        let mockMealSummary1 = MockMealSummary(idMeal: "1", strMeal: "Banana Split", strMealThumb: "")
+        let mockMealSummary2 = MockMealSummary(idMeal: "2", strMeal: nil, strMealThumb: "")
+        let mockMealSummary3 = MockMealSummary(idMeal: "3", strMeal: "Apple Pie", strMealThumb: "")
+        mockRepository.mockMealSummaries = [mockMealSummary1, mockMealSummary2, mockMealSummary3]
+        
+        // Act
+        viewModel.fetchMealSummaries()
+        
+        // Wait for the async fetch to complete
+        DispatchQueue.main.async {
+            // Assert
+            XCTAssertEqual(self.viewModel.sortedMealSummaries.count, 2)
+            XCTAssertEqual(self.viewModel.sortedMealSummaries[0].idMeal, "3") // "Apple Pie" should come before "Banana Split"
+            XCTAssertEqual(self.viewModel.sortedMealSummaries[1].idMeal, "1")
+            XCTAssertNil(self.viewModel.sortedMealSummaries.first { $0.strMeal == nil }) // There should be no nil `strMeal`
+        }
+    }
+
 }

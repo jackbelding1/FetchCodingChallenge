@@ -48,8 +48,22 @@ class MockMealSummaryViewModel: MealSummaryViewModelProtocol {
             errorMessage = "Mock error: failed to fetch meal detail"
             isLoading = false
         } else {
-            // Provide mock data for meal detail
-            let mockDetail = MockMealDetail(idMeal: id, strMeal: "Mock Meal", strInstructions: "Mock Instructions", strMealThumb: "mockThumbURL", strTags: "Mock Tags", strYoutube: "mockYoutubeURL", strSource: "mockSourceURL", ingredients: ["Ingredient1": "1 cup"])
+            let mockIngredients = [
+                Ingredient(name: "Ingredient1", measurement: "1 cup"),
+                // Add more mock ingredients as needed
+            ]
+
+            let mockDetail = MockMealDetail(
+                idMeal: id,
+                strMeal: "Mock Meal",
+                strInstructions: "Mock Instructions",
+                strMealThumb: "mockThumbURL",
+                strTags: "Mock Tags",
+                strYoutube: "mockYoutubeURL",
+                strSource: "mockSourceURL",
+                ingredients: mockIngredients
+            )
+
             mealDetail = mockDetail
             isLoading = false
         }
