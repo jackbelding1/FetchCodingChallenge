@@ -126,19 +126,20 @@ struct MealDetailView: View {
                     .padding()
             }
             
-            if let youtubeURL = mealDetail.strYoutube {
-                Link("Watch on YouTube", destination: URL(string: youtubeURL)!)
+            if let youtubeURLString = mealDetail.strYoutube, let youtubeURL = URL(string: youtubeURLString) {
+                Link("Watch on YouTube", destination: youtubeURL)
                     .padding()
             }
             
-            if let source = mealDetail.strSource {
-                Link("Recipe Source", destination: URL(string: source)!)
+            if let sourceString = mealDetail.strSource, let sourceURL = URL(string: sourceString) {
+                Link("Recipe Source", destination: sourceURL)
                     .padding()
             }
         }
         .padding(.top)
         .accessibilityIdentifier("mealDetailAdditionalInfoView")
     }
+
 }
 
 //struct MealDetailView_Previews: PreviewProvider {
