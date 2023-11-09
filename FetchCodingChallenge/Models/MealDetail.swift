@@ -14,20 +14,48 @@ class MealDetail: MealDetailProtocol {
     let strTags: String?
     let strYoutube: String?
     let strSource: String?
-    let ingredients: [String : String]?
+    var ingredients: [Ingredient] = []
 
-    var id: String {
-        return idMeal
+    enum CodingKeys: String, CodingKey {
+        case idMeal, strMeal, strInstructions, strMealThumb, strTags, strYoutube, strSource
+        case strIngredient, strMeasure
     }
     
-    required init(idMeal: String, strMeal: String?, strInstructions: String?, strMealThumb: String?, strTags: String?, strYoutube: String?, strSource: String?, ingredients: [String : String]?) {
-        self.idMeal = idMeal
-        self.strMeal = strMeal
-        self.strInstructions = strInstructions
-        self.strMealThumb = strMealThumb
-        self.strTags = strTags
-        self.strYoutube = strYoutube
-        self.strSource = strSource
-        self.ingredients = ingredients
+    // Custom CodingKey struct for dynamic keys
+     struct DynamicKey: CodingKey {
+         var stringValue: String
+         init?(stringValue: String) {
+             self.stringValue = stringValue
+         }
+
+         var intValue: Int? { return nil }
+         init?(intValue: Int) { return nil }
+     }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        idMeal = try container.decode(String.self, forKey: .idMeal)
+        strMeal = try container.decodeIfPresent(String.self, forKey: .strMeal)
+        strInstructions = try container.decodeIfPresent(String.self, forKey: .strInstructions)
+        strMealThumb = try container.decodeIfPresent(String.self, forKey: .strMealThumb)
+        strTags = try container.decodeIfPresent(String.self, forKey: .strTags)
+        strYoutube = try container.decodeIfPresent(String.self, forKey: .strYoutube)
+        strSource = try container.decodeIfPresent(String.self, forKey: .strSource)
+
+        let dynamicContainer = try decoder.container(keyedBy: DynamicKey.self)
+
+        for index in 1...20 {
+            let ingredientKeyString = "strIngredient\(index)"
+            let measureKeyString = "strMeasure\(index)"
+
+            if let ingredientKey = DynamicKey(stringValue: ingredientKeyString),
+               let measureKey = DynamicKey(stringValue: measureKeyString),
+               let ingredientName = try dynamicContainer.decodeIfPresent(String.self, forKey: ingredientKey),
+               !ingredientName.isEmpty,
+               let measure = try dynamicContainer.decodeIfPresent(String.self, forKey: measureKey) {
+                let ingredient = Ingredient(name: ingredientName, measurement: measure)
+                ingredients.append(ingredient)
+            }
+        }
     }
 }

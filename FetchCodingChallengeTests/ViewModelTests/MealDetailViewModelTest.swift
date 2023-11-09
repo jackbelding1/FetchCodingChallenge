@@ -11,23 +11,12 @@ import XCTest
 class MealDetailViewModelTests: XCTestCase {
     
     var viewModel: MealDetailViewModel!
-    var mockRepository: MealRepositoryProtocol!
+    var mockRepository: MockMealRepository!
     
     override func setUp() {
         super.setUp()
-        // Here you would initialize your viewModel with a mock repository or other necessary mocks
         mockRepository = MockMealRepository()
-        let mockMealDetail = MockMealDetail(
-            idMeal: "1",
-            strMeal: "Mock Meal Detail",
-            strInstructions: "Some instructions",
-            strMealThumb: "MockDetailThumbURL",
-            strTags: "Tag1,Tag2",
-            strYoutube: "MockYoutubeURL",
-            strSource: "MockSourceURL",
-            ingredients: ["Ingredient1": "1 cup", "Ingredient2": "2 tsp"]
-        ) // Initialize with required properties
-        viewModel = MealDetailViewModel(mealDetail: mockMealDetail)
+        viewModel = MealDetailViewModel(repository: mockRepository, mealID: "1")
     }
     
     override func tearDown() {
@@ -36,27 +25,45 @@ class MealDetailViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func testOpenLinkSuccess() {
+    func testFetchingMealDetailSuccess() {
         // Given
-        let url = "https://example.com"
-        
+        let expectation = XCTestExpectation(description: "Meal detail fetched successfully")
+        mockRepository = MockMealRepository()
+        mockRepository.shouldReturnSuccess = true
+        viewModel = MealDetailViewModel(repository: mockRepository, mealID: "1")
         // When
-        viewModel.openLink(url)
+        viewModel.loadMealDetail()
         
         // Then
-        XCTAssertNil(viewModel.error, "Opening a link should not produce an error")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            XCTAssertFalse(self.viewModel.isLoading)
+            XCTAssertNotNil(self.viewModel.mealDetail)
+            XCTAssertNil(self.viewModel.errorMessage)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 2)
     }
     
-    func testOpenLinkFailure() {
+    func testFetchingMealDetailFailure() {
         // Given
-        let url = "" // An invalid URL
+        let expectation = XCTestExpectation(description: "Meal detail fetching failed")
+        mockRepository = MockMealRepository()
+        mockRepository.shouldReturnSuccess = false
+        viewModel = MealDetailViewModel(repository: mockRepository, mealID: "1")
+        viewModel.mealDetail = nil
         
         // When
-        viewModel.openLink(url)
-        
+        viewModel.loadMealDetail()
+
         // Then
-        XCTAssertNotNil(viewModel.error, "Opening an invalid link should produce an error")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            XCTAssertFalse(self.viewModel.isLoading)
+            XCTAssertNil(self.viewModel.mealDetail)
+            XCTAssertNotNil(self.viewModel.errorMessage)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 2)
     }
     
-    // Additional tests can be written to cover other functionalities like handling user interactions, etc.
+    // Add more tests as necessary to cover the functionality of the view model.
 }

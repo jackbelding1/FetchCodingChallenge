@@ -10,4 +10,5 @@ protocol MealSummaryProtocol: Identifiable {
     var idMeal: String { get }
     var strMeal: String? { get }
     var strMealThumb: String? { get }
+    var id: String { get }
 }

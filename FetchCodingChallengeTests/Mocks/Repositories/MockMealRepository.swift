@@ -11,6 +11,8 @@ import Foundation
 class MockMealRepository: MealRepositoryProtocol {
     var shouldReturnSuccess: Bool = true
     
+    var mockMealSummaries: [MockMealSummary] = []
+    
     func fetchMealSummaries(completion: @escaping (Result<[any MealSummaryProtocol], Error>) -> Void) {
         if shouldReturnSuccess {
             // Hardcoded successful response using the mock models
@@ -28,16 +30,23 @@ class MockMealRepository: MealRepositoryProtocol {
     func fetchMealDetail(forId id: String, completion: @escaping (Result<any MealDetailProtocol, Error>) -> Void) {
         if shouldReturnSuccess {
             // Hardcoded successful response using the mock models
+            // Provide mock data for meal detail
+            let mockIngredients = [
+                Ingredient(name: "Ingredient1", measurement: "1 cup"),
+                // Add more mock ingredients as needed
+            ]
+            
             let mockDetail = MockMealDetail(
                 idMeal: id,
-                strMeal: "Mock Meal Detail",
-                strInstructions: "Some instructions",
-                strMealThumb: "MockDetailThumbURL",
-                strTags: "Tag1,Tag2",
-                strYoutube: "MockYoutubeURL",
-                strSource: "MockSourceURL",
-                ingredients: ["Ingredient1": "1 cup", "Ingredient2": "2 tsp"]
+                strMeal: "Mock Meal",
+                strInstructions: "Mock Instructions",
+                strMealThumb: "mockThumbURL",
+                strTags: "Mock Tags",
+                strYoutube: "mockYoutubeURL",
+                strSource: "mockSourceURL",
+                ingredients: mockIngredients
             )
+            
             completion(.success(mockDetail as any MealDetailProtocol))
         } else {
             // Hardcoded failure response

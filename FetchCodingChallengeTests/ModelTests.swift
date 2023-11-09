@@ -42,12 +42,13 @@ class ModelTests: XCTestCase {
             "strTags": "Test,Tags",
             "strYoutube": "https://youtube.com",
             "strSource": "https://source.com",
-            "ingredients": {
-                "Test Ingredient 1": "1 cup",
-                "Test Ingredient 2": "2 tsp"
-            }
+            "strIngredient1": "Test Ingredient 1",
+            "strMeasure1": "1 cup",
+            "strIngredient2": "Test Ingredient 2",
+            "strMeasure2": "2 tsp"
         }
         """.data(using: .utf8)!
+
 
         let decoder = JSONDecoder()
         do {
@@ -59,9 +60,11 @@ class ModelTests: XCTestCase {
             XCTAssertEqual(mealDetail.strTags, "Test,Tags")
             XCTAssertEqual(mealDetail.strYoutube, "https://youtube.com")
             XCTAssertEqual(mealDetail.strSource, "https://source.com")
-            XCTAssertEqual(mealDetail.ingredients?.count, 2)
-            XCTAssertEqual(mealDetail.ingredients?["Test Ingredient 1"], "1 cup")
-            XCTAssertEqual(mealDetail.ingredients?["Test Ingredient 2"], "2 tsp")
+            XCTAssertEqual(mealDetail.ingredients.count, 2)
+            XCTAssertEqual(mealDetail.ingredients[0].name, "Test Ingredient 1")
+            XCTAssertEqual(mealDetail.ingredients[0].measurement, "1 cup")
+            XCTAssertEqual(mealDetail.ingredients[1].name, "Test Ingredient 2")
+            XCTAssertEqual(mealDetail.ingredients[1].measurement, "2 tsp")
         } catch {
             XCTFail("Decoding failed with error: \(error)")
         }

@@ -19,6 +19,7 @@ class MealSummaryViewModel: MealSummaryViewModelProtocol, ObservableObject {
     
     init(repository: MealRepositoryProtocol) {
         self.repository = repository
+        fetchMealSummaries()
     }
     
     func fetchMealSummaries()  {
@@ -54,5 +55,14 @@ class MealSummaryViewModel: MealSummaryViewModelProtocol, ObservableObject {
                 
             }
         }
+    }
+}
+
+
+extension MealSummaryViewModel {
+    var sortedMealSummaries: [any MealSummaryProtocol] {
+        mealSummaries
+            .filter { $0.strMeal != nil } // Filter out nil values
+            .sorted { ($0.strMeal ?? "") < ($1.strMeal ?? "") } // Sort the remaining
     }
 }
