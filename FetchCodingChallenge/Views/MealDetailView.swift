@@ -8,47 +8,82 @@
 import SwiftUI
 import Kingfisher
 
-import SwiftUI
-import Kingfisher
-
 struct MealDetailView: View {
     @ObservedObject var viewModel: MealDetailViewModel
+    @Environment(\.presentationMode) var presentationMode
     
+    // MARK: - Body
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                if viewModel.isLoading {
-                    ProgressView()
-                        .scaleEffect(1.5)
-                        .padding()
-                } else if let error = viewModel.errorMessage {
-                    Text("Error: \(error)")
-                        .foregroundColor(.red)
-                        .padding()
+                loadingOrErrorView
+                if let mealDetail = viewModel.mealDetail {
+                    mealDetailView(mealDetail: mealDetail)
                 } else {
-                    if let mealDetail = viewModel.mealDetail {
-                        mealDetailView(mealDetail: mealDetail)
-                    } else {
-                        Text("Meal detail not available.")
-                            .padding()
-                    }
+                    Text("Meal detail not available.")
+                        .padding()
                 }
             }
         }
-        .navigationBarTitle(viewModel.mealDetail?.strMeal ?? "Meal Detail", displayMode: .inline)
     }
     
+    // MARK: - Loading or Error View
+    @ViewBuilder
+    private var loadingOrErrorView: some View {
+        if viewModel.isLoading {
+            ProgressView()
+                .scaleEffect(1.5)
+                .padding()
+        } else if let error = viewModel.errorMessage {
+            Text("Error: \(error)")
+                .foregroundColor(.red)
+                .padding()
+        }
+    }
+    
+    // MARK: - Meal Detail View
     @ViewBuilder
     private func mealDetailView(mealDetail: any MealDetailProtocol) -> some View {
-        Text(mealDetail.strMeal ?? "Unknown Meal")
-            .font(.title)
-            .padding()
-        
+        mealTitleView(mealDetail)
+        mealImageView(mealDetail)
+        ingredientsView
+        instructionsView(mealDetail)
+        additionalInfoView(mealDetail)
+    }
+    
+    // MARK: - Subviews
+    private func mealTitleView(_ mealDetail: any MealDetailProtocol) -> some View {
+        HStack {
+            // Dismiss Button
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Image(systemName: "chevron.left") // Use an appropriate icon for back
+                    .foregroundColor(.blue)
+                    .imageScale(.large)
+            }
+            .padding(8)
+            
+            // Title
+            Text(mealDetail.strMeal ?? "Unknown Meal")
+                .font(.title)
+                .padding()
+        }
+    }
+    
+    private func mealImageView(_ mealDetail: any MealDetailProtocol) -> some View {
         KFImage(URL(string: mealDetail.strMealThumb ?? ""))
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(maxWidth: .infinity)
             .clipped()
+    }
+    
+    @ViewBuilder
+    private var ingredientsView: some View {
+        Text("Ingredients:")
+            .font(.headline)
+            .padding()
         
         ForEach(viewModel.mealDetail?.ingredients ?? [], id: \.name) { ingredient in
             HStack {
@@ -59,34 +94,44 @@ struct MealDetailView: View {
             }
             .padding()
         }
-        
-        if let instructions = mealDetail.strInstructions, !instructions.isEmpty {
-            Text("Instructions")
-                .font(.headline)
-                .padding()
-            
-            Text(instructions)
-                .padding([.horizontal, .bottom])
-        }
-        
-        if let tags = mealDetail.strTags, !tags.isEmpty {
-            Text("Tags: \(tags)")
-                .padding()
-        }
-        
-        if let youtubeURL = mealDetail.strYoutube {
-            Link("Watch on YouTube", destination: URL(string: youtubeURL)!)
-                .padding()
-        }
-        
-        if let source = mealDetail.strSource {
-            Link("Recipe Source", destination: URL(string: source)!)
-                .padding()
+    }
+    
+    private func instructionsView(_ mealDetail: any MealDetailProtocol) -> some View {
+        VStack {
+            if let instructions = mealDetail.strInstructions, !instructions.isEmpty {
+                Text("Instructions")
+                    .font(.headline)
+                    .padding()
+                
+                Text(instructions)
+                    .padding([.horizontal, .bottom])
+            } else {
+                EmptyView()
+            }
         }
     }
+    
+    
+    private func additionalInfoView(_ mealDetail: any MealDetailProtocol) -> some View {
+        VStack(alignment: .leading) {
+            if let tags = mealDetail.strTags, !tags.isEmpty {
+                Text("Tags: \(tags)")
+                    .padding()
+            }
+            
+            if let youtubeURL = mealDetail.strYoutube {
+                Link("Watch on YouTube", destination: URL(string: youtubeURL)!)
+                    .padding()
+            }
+            
+            if let source = mealDetail.strSource {
+                Link("Recipe Source", destination: URL(string: source)!)
+                    .padding()
+            }
+        }
+        .padding(.top)
+    }
 }
-
-
 
 //struct MealDetailView_Previews: PreviewProvider {
 //    static var previews: some View {

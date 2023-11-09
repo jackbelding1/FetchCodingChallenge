@@ -45,6 +45,7 @@ struct MealSummaryView: View {
                             }
                         }
                     }
+                    .accessibility(identifier: "mealSummaryGrid")
                     .padding()
                     // This will present the MealDetailView when showingDetail is true
                     .sheet(isPresented: $showingDetail, onDismiss: {
@@ -60,9 +61,6 @@ struct MealSummaryView: View {
                 }
             }
             .navigationTitle("Desserts")
-            .onAppear {
-                viewModel.fetchMealSummaries()
-            }
         }
     }
 }

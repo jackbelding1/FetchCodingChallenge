@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		772568D72AF57AF400B1A71B /* FetchCodingChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772568D62AF57AF400B1A71B /* FetchCodingChallengeApp.swift */; };
-		772568D92AF57AF400B1A71B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772568D82AF57AF400B1A71B /* ContentView.swift */; };
 		772568DB2AF57AF500B1A71B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 772568DA2AF57AF500B1A71B /* Assets.xcassets */; };
 		772568DE2AF57AF500B1A71B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 772568DD2AF57AF500B1A71B /* Preview Assets.xcassets */; };
-		772568F22AF57AF500B1A71B /* FetchCodingChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772568F12AF57AF500B1A71B /* FetchCodingChallengeUITests.swift */; };
-		772568F42AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772568F32AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift */; };
 		774C748F2AF9913200133873 /* MealRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C748E2AF9913200133873 /* MealRepositoryProtocol.swift */; };
 		774C74922AF9919300133873 /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C74912AF9919300133873 /* MealRepository.swift */; };
 		776BB80B2AF9952E00742E82 /* MealSummaryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB80A2AF9952E00742E82 /* MealSummaryViewModelProtocol.swift */; };
@@ -36,6 +33,7 @@
 		777BD97E2AF6E06200EB56CC /* MealSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BD97D2AF6E06200EB56CC /* MealSummary.swift */; };
 		777BD9802AF6E0C600EB56CC /* MealDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BD97F2AF6E0C600EB56CC /* MealDetailProtocol.swift */; };
 		777BD9822AF6E0FC00EB56CC /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BD9812AF6E0FC00EB56CC /* MealDetail.swift */; };
+		77816EA72AFC4E7C006B570C /* MealSummaryViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77816EA62AFC4E7C006B570C /* MealSummaryViewTest.swift */; };
 		778B0BD72AFACDBE004DD30F /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778B0BD62AFACDBE004DD30F /* MealDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,13 +57,10 @@
 /* Begin PBXFileReference section */
 		772568D32AF57AF400B1A71B /* FetchCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		772568D62AF57AF400B1A71B /* FetchCodingChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCodingChallengeApp.swift; sourceTree = "<group>"; };
-		772568D82AF57AF400B1A71B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		772568DA2AF57AF500B1A71B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		772568DD2AF57AF500B1A71B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		772568E32AF57AF500B1A71B /* FetchCodingChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchCodingChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		772568ED2AF57AF500B1A71B /* FetchCodingChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchCodingChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		772568F12AF57AF500B1A71B /* FetchCodingChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCodingChallengeUITests.swift; sourceTree = "<group>"; };
-		772568F32AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCodingChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		774C748E2AF9913200133873 /* MealRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepositoryProtocol.swift; sourceTree = "<group>"; };
 		774C74912AF9919300133873 /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
 		776BB80A2AF9952E00742E82 /* MealSummaryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummaryViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -85,6 +80,7 @@
 		777BD97D2AF6E06200EB56CC /* MealSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummary.swift; sourceTree = "<group>"; };
 		777BD97F2AF6E0C600EB56CC /* MealDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailProtocol.swift; sourceTree = "<group>"; };
 		777BD9812AF6E0FC00EB56CC /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
+		77816EA62AFC4E7C006B570C /* MealSummaryViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummaryViewTest.swift; sourceTree = "<group>"; };
 		778B0BD62AFACDBE004DD30F /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +144,6 @@
 				777BD9792AF6DD7700EB56CC /* Protocols */,
 				777BD9752AF6D57A00EB56CC /* Models */,
 				772568D62AF57AF400B1A71B /* FetchCodingChallengeApp.swift */,
-				772568D82AF57AF400B1A71B /* ContentView.swift */,
 				772568DA2AF57AF500B1A71B /* Assets.xcassets */,
 				772568DC2AF57AF500B1A71B /* Preview Content */,
 			);
@@ -176,8 +171,7 @@
 		772568F02AF57AF500B1A71B /* FetchCodingChallengeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				772568F12AF57AF500B1A71B /* FetchCodingChallengeUITests.swift */,
-				772568F32AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift */,
+				77816EA62AFC4E7C006B570C /* MealSummaryViewTest.swift */,
 			);
 			path = FetchCodingChallengeUITests;
 			sourceTree = "<group>";
@@ -389,6 +383,7 @@
 					};
 					772568EC2AF57AF500B1A71B = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 						TestTargetID = 772568D22AF57AF400B1A71B;
 					};
 				};
@@ -454,7 +449,6 @@
 				778B0BD72AFACDBE004DD30F /* MealDetailView.swift in Sources */,
 				777BD97E2AF6E06200EB56CC /* MealSummary.swift in Sources */,
 				776BB8432AF9C1E200742E82 /* MealSummaryView.swift in Sources */,
-				772568D92AF57AF400B1A71B /* ContentView.swift in Sources */,
 				776BB80E2AF9954B00742E82 /* MealSummaryViewModel.swift in Sources */,
 				777BD9822AF6E0FC00EB56CC /* MealDetail.swift in Sources */,
 				776BB83C2AF9BC0A00742E82 /* MealDetailViewModelProtocol.swift in Sources */,
@@ -484,8 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				772568F22AF57AF500B1A71B /* FetchCodingChallengeUITests.swift in Sources */,
-				772568F42AF57AF500B1A71B /* FetchCodingChallengeUITestsLaunchTests.swift in Sources */,
+				77816EA72AFC4E7C006B570C /* MealSummaryViewTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +714,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4QY57KKASP;
@@ -729,6 +723,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "alpine-software.FetchCodingChallengeUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = FetchCodingChallenge;
@@ -739,6 +734,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4QY57KKASP;

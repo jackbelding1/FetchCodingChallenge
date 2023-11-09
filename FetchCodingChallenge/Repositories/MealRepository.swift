@@ -25,6 +25,7 @@ class MealRepository: MealRepositoryProtocol {
     }
 
     func fetchMealSummaries(completion: @escaping (Result<[any MealSummaryProtocol], Error>) -> Void) {
+
         let urlString = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.badURL))
