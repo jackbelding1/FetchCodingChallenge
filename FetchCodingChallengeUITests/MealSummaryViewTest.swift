@@ -12,7 +12,6 @@ final class MealSummaryViewTest: XCTestCase {
     func testMealSummaryGridItemDisplay() {
         let app = XCUIApplication()
         app.launch()
-        print(app.debugDescription)
 
         // Access the grid
         let grid = app.otherElements["mealSummaryGrid"]
@@ -28,4 +27,44 @@ final class MealSummaryViewTest: XCTestCase {
         XCTAssertTrue(firstItem.images.count > 0, "The meal summary item should have an image.")
     }
 
+    func testNavigationToMealDetailView() {
+        let app = XCUIApplication()
+        app.launch()
+
+        let grid = app.otherElements["mealSummaryGrid"]
+        XCTAssertTrue(grid.waitForExistence(timeout: 10), "Meal summary grid did not appear in time")
+
+        let firstItem = grid.buttons.element(boundBy: 0)
+        XCTAssertTrue(firstItem.exists, "The first meal summary item is not displayed")
+        firstItem.tap()
+        
+        // Assert Meal detail is showing
+        XCTAssertTrue(app.staticTexts["mealDetailTitle"].exists, "The meal title should be displayed")
+        XCTAssertTrue(app.images["mealDetailImageView"].exists, "The meal image should be displayed")
+        XCTAssertTrue(app.staticTexts["mealDetailIngredientsView"].exists, "The ingredients view should be present")
+        XCTAssertTrue(app.staticTexts["mealDetailInstructionsView"].exists, "The instructions view should be displayed")
+        XCTAssertTrue(app.buttons["mealDetailAdditionalInfoView"].exists, "The additional info view should be present")
+    }
+    
+    func testNavigateBackFromMealDetailView() {
+        let app = XCUIApplication()
+        app.launch()
+
+        let grid = app.otherElements["mealSummaryGrid"]
+        XCTAssertTrue(grid.waitForExistence(timeout: 10), "Meal summary grid did not appear in time")
+
+        let firstItem = grid.buttons.element(boundBy: 0)
+        XCTAssertTrue(firstItem.exists, "The first meal summary item is not displayed")
+        firstItem.tap()
+        print(app.debugDescription)
+        XCTAssertTrue(app.staticTexts["mealDetailTitle"].exists, "The meal title should be displayed")
+        
+        let backButton = app.buttons["Back"]
+        XCTAssertTrue(backButton.exists, "The back button is not displayed")
+        backButton.tap()
+
+        // Assert Popup is gone
+        XCTAssertFalse(backButton.exists, "The back button displays")
+        
+    }
 }

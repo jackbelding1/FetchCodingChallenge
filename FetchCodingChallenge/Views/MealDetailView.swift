@@ -32,6 +32,7 @@ struct MealDetailView: View {
     private var loadingOrErrorView: some View {
         if viewModel.isLoading {
             ProgressView()
+                .accessibilityIdentifier("mealDetailLoadingView")
                 .scaleEffect(1.5)
                 .padding()
         } else if let error = viewModel.errorMessage {
@@ -68,12 +69,14 @@ struct MealDetailView: View {
             Text(mealDetail.strMeal ?? "Unknown Meal")
                 .font(.title)
                 .padding()
+                .accessibilityIdentifier("mealDetailTitle")
         }
     }
     
     private func mealImageView(_ mealDetail: any MealDetailProtocol) -> some View {
         KFImage(URL(string: mealDetail.strMealThumb ?? ""))
             .resizable()
+            .accessibilityIdentifier("mealDetailImageView")
             .aspectRatio(contentMode: .fill)
             .frame(maxWidth: .infinity)
             .clipped()
@@ -81,19 +84,22 @@ struct MealDetailView: View {
     
     @ViewBuilder
     private var ingredientsView: some View {
-        Text("Ingredients:")
-            .font(.headline)
-            .padding()
-        
-        ForEach(viewModel.mealDetail?.ingredients ?? [], id: \.name) { ingredient in
-            HStack {
-                Text(ingredient.name)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text(ingredient.measurement)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+        Group {
+            Text("Ingredients:")
+                .font(.headline)
+                .padding()
+            
+            ForEach(viewModel.mealDetail?.ingredients ?? [], id: \.name) { ingredient in
+                HStack {
+                    Text(ingredient.name)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(ingredient.measurement)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+                .padding()
             }
-            .padding()
         }
+        .accessibilityIdentifier("mealDetailIngredientsView")
     }
     
     private func instructionsView(_ mealDetail: any MealDetailProtocol) -> some View {
@@ -109,6 +115,7 @@ struct MealDetailView: View {
                 EmptyView()
             }
         }
+        .accessibilityIdentifier("mealDetailInstructionsView")
     }
     
     
@@ -130,6 +137,7 @@ struct MealDetailView: View {
             }
         }
         .padding(.top)
+        .accessibilityIdentifier("mealDetailAdditionalInfoView")
     }
 }
 
