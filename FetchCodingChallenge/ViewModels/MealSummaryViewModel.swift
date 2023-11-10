@@ -7,7 +7,11 @@
 
 import Foundation
 
+// MARK: - Meal Summary View Model
+
 class MealSummaryViewModel: MealSummaryViewModelProtocol, ObservableObject {
+    
+    // MARK: - Published Properties
     
     @Published var mealSummaries = [any MealSummaryProtocol]()
     @Published var isLoading = false
@@ -15,12 +19,18 @@ class MealSummaryViewModel: MealSummaryViewModelProtocol, ObservableObject {
     
     @Published var mealDetail: (any MealDetailProtocol)?
     
+    // MARK: - Private Properties
+    
     private let repository: MealRepositoryProtocol
+    
+    // MARK: - Initializer
     
     init(repository: MealRepositoryProtocol) {
         self.repository = repository
         fetchMealSummaries()
     }
+    
+    // MARK: - Fetching Data
     
     func fetchMealSummaries()  {
         isLoading = true
@@ -58,8 +68,12 @@ class MealSummaryViewModel: MealSummaryViewModelProtocol, ObservableObject {
     }
 }
 
+// MARK: - Extensions
 
 extension MealSummaryViewModel {
+    
+    // MARK: - Computed Properties
+    
     var sortedMealSummaries: [any MealSummaryProtocol] {
         mealSummaries
             .filter { $0.strMeal != nil } // Filter out nil values

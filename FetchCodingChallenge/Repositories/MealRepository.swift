@@ -13,16 +13,19 @@ enum NetworkError: Error {
     case badURL, requestFailed, noData, parsingFailed, unknown
 }
 
-// MARK: - Meal Repository Protocol
+// MARK: - Meal Repository
 
 class MealRepository: MealRepositoryProtocol {
-    // URLSession object
+
     private var session: URLSession
 
-    // Initializer
+    // MARK: - Initializer
+
     init(session: URLSession = .shared) {
         self.session = session
     }
+    
+    // MARK: - Fetching Data
 
     func fetchMealSummaries(completion: @escaping (Result<[any MealSummaryProtocol], Error>) -> Void) {
 
@@ -78,7 +81,7 @@ class MealRepository: MealRepositoryProtocol {
                 let response = try JSONDecoder().decode(MealDetailsResponse.self, from: data)
                 // Assuming the JSON has a "meals" key that contains an array of MealDetail
                 // Map the decoded meals to protocol type
-                if let mealDetail = response.meals.first as? any MealDetailProtocol {
+                if let mealDetail = response.meals.first {
                     completion(.success(mealDetail))
                 } else {
                     completion(.failure(NetworkError.parsingFailed))

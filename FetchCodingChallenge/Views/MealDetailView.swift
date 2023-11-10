@@ -8,6 +8,8 @@
 import SwiftUI
 import Kingfisher
 
+// MARK: - Meal Detail View
+
 struct MealDetailView: View {
     @ObservedObject var viewModel: MealDetailViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -126,13 +128,13 @@ struct MealDetailView: View {
                     .padding()
             }
             
-            if let youtubeURL = mealDetail.strYoutube {
-                Link("Watch on YouTube", destination: URL(string: youtubeURL)!)
+            if let youtubeURLString = mealDetail.strYoutube, let youtubeURL = URL(string: youtubeURLString) {
+                Link("Watch on YouTube", destination: youtubeURL)
                     .padding()
             }
             
-            if let source = mealDetail.strSource {
-                Link("Recipe Source", destination: URL(string: source)!)
+            if let sourceString = mealDetail.strSource, let sourceURL = URL(string: sourceString) {
+                Link("Recipe Source", destination: sourceURL)
                     .padding()
             }
         }
@@ -140,9 +142,3 @@ struct MealDetailView: View {
         .accessibilityIdentifier("mealDetailAdditionalInfoView")
     }
 }
-
-//struct MealDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MealDetailView()
-//    }
-//}
