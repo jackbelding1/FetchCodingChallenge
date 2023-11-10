@@ -6,7 +6,13 @@
 //
 
 import Foundation
+
+// MARK: - Meal Detail Model
+
 class MealDetail: MealDetailProtocol {
+    
+    // MARK: - Properties
+    
     let idMeal: String
     let strMeal: String?
     let strInstructions: String?
@@ -16,11 +22,14 @@ class MealDetail: MealDetailProtocol {
     let strSource: String?
     var ingredients: [Ingredient] = []
     
+    // MARK: - CodingKeys Enum
+    
     enum CodingKeys: String, CodingKey {
         case idMeal, strMeal, strInstructions, strMealThumb, strTags, strYoutube, strSource
         case strIngredient, strMeasure
     }
     
+    // MARK: - DynamicKey Struct
     // Custom CodingKey struct for dynamic keys
     struct DynamicKey: CodingKey {
         var stringValue: String
@@ -32,6 +41,8 @@ class MealDetail: MealDetailProtocol {
         init?(intValue: Int) { return nil }
     }
     
+    // MARK: - Initializer
+    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         idMeal = try container.decode(String.self, forKey: .idMeal)
@@ -42,8 +53,9 @@ class MealDetail: MealDetailProtocol {
         strYoutube = try container.decodeIfPresent(String.self, forKey: .strYoutube)
         strSource = try container.decodeIfPresent(String.self, forKey: .strSource)
         
-        let dynamicContainer = try decoder.container(keyedBy: DynamicKey.self)
+        // MARK: - Ingredients Processing
         
+        let dynamicContainer = try decoder.container(keyedBy: DynamicKey.self)
         var seenIngredients = Set<String>()
         
         for index in 1...20 {

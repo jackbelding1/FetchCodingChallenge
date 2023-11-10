@@ -8,6 +8,8 @@
 import SwiftUI
 import Kingfisher
 
+// MARK: - Meal Detail View
+
 struct MealDetailView: View {
     @ObservedObject var viewModel: MealDetailViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -139,11 +141,4 @@ struct MealDetailView: View {
         .padding(.top)
         .accessibilityIdentifier("mealDetailAdditionalInfoView")
     }
-
 }
-
-//struct MealDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MealDetailView()
-//    }
-//}

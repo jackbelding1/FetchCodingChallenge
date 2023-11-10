@@ -6,9 +6,9 @@
 //
 
 import Foundation
-
-
 import UIKit
+
+// MARK: - Meal Detail View Model
 
 class MealDetailViewModel: MealDetailViewModelProtocol, ObservableObject {
     
@@ -20,7 +20,7 @@ class MealDetailViewModel: MealDetailViewModelProtocol, ObservableObject {
     private let repository: MealRepositoryProtocol
     private let mealID: String
     
-    // MARK: - Initialization
+    // MARK: - Initializer
     
     init(repository: MealRepositoryProtocol, mealID: String) {
         self.repository = repository

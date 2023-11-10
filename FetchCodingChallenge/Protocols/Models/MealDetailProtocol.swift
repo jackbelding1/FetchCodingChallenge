@@ -6,7 +6,13 @@
 //
 
 import Foundation
+
+// MARK: - Meal Detail Model Protocol
+
 protocol MealDetailProtocol: Decodable, Identifiable {
+    
+    // MARK: - Properties
+    
     var idMeal: String { get }
     var strMeal: String? { get }
     var strInstructions: String? { get }
@@ -14,8 +20,10 @@ protocol MealDetailProtocol: Decodable, Identifiable {
     var strTags: String? { get }
     var strYoutube: String? { get }
     var strSource: String? { get }
-    var ingredients: [Ingredient] { get } // Updated to use an array of Ingredient objects
+    var ingredients: [Ingredient] { get }
 }
+
+// MARK: - Ingredient
 
 struct Ingredient: Decodable {
     let name: String
