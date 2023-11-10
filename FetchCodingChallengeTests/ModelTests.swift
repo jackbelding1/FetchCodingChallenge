@@ -8,9 +8,12 @@
 import XCTest
 @testable import FetchCodingChallenge
 
+// MARK: - Model Tests
+
 class ModelTests: XCTestCase {
     
-    // Test MealSummary Decoding
+    // MARK: - Meal Summary Decoding Tests
+    
     func testMealSummaryDecoding() {
         let json = """
         {
@@ -31,7 +34,8 @@ class ModelTests: XCTestCase {
         }
     }
 
-    // Test MealDetail Decoding
+    // MARK: - Meal Detail Decoding Tests
+    
     func testMealDetailDecoding() {
         let json = """
         {

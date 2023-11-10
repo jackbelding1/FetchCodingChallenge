@@ -28,6 +28,7 @@ struct MealSummaryView: View {
             }
             .navigationTitle("Desserts")
         }
+        .onAppear(perform: viewModel.fetchMealSummaries)
     }
 
     // MARK: - Loading or Error View

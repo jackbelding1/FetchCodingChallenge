@@ -8,9 +8,11 @@
 import Foundation
 @testable import FetchCodingChallenge
 
+// MARK: - Mock Meal Summary View Model
+
 class MockMealSummaryViewModel: MealSummaryViewModelProtocol {
     
-    // MARK: - Properties for Mock
+    // MARK: - Properties
     
     var mealSummaries: [any MealSummaryProtocol] = []
     var isLoading: Bool = false
@@ -21,13 +23,8 @@ class MockMealSummaryViewModel: MealSummaryViewModelProtocol {
     var shouldReturnErrorOnFetchSummaries: Bool = false
     var shouldReturnErrorOnFetchDetail: Bool = false
     
-    // MARK: - Initialization
     
-    init() {
-        // You can initialize with default values or specific test data if required
-    }
-    
-    // MARK: - Mock Methods
+    // MARK: - Methods
     
     func fetchMealSummaries() {
         isLoading = true
@@ -52,7 +49,7 @@ class MockMealSummaryViewModel: MealSummaryViewModelProtocol {
                 Ingredient(name: "Ingredient1", measurement: "1 cup"),
                 // Add more mock ingredients as needed
             ]
-
+            
             let mockDetail = MockMealDetail(
                 idMeal: id,
                 strMeal: "Mock Meal",
@@ -63,13 +60,9 @@ class MockMealSummaryViewModel: MealSummaryViewModelProtocol {
                 strSource: "mockSourceURL",
                 ingredients: mockIngredients
             )
-
+            
             mealDetail = mockDetail
             isLoading = false
         }
     }
-    
-    // MARK: - Helper Methods
-    
-    // You can add helper methods to modify mock behavior during tests, like resetting mock state or setting specific flags.
 }

@@ -27,7 +27,6 @@ class MealSummaryViewModel: MealSummaryViewModelProtocol, ObservableObject {
     
     init(repository: MealRepositoryProtocol) {
         self.repository = repository
-        fetchMealSummaries()
     }
     
     // MARK: - Fetching Data
