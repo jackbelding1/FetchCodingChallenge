@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Fetch Coding Challenge is an iOS application designed to showcase a clean, scalable, and testable codebase. This project is built using Swift and follows modern iOS development practices. It's an excellent example of a well-structured iOS application that can serve as a reference for both beginners and experienced developers.
+The Fetch Coding Challenge is an iOS application designed to showcase a clean, scalable, and testable codebase. This project is built using Swift/SwiftUI and follows modern iOS development practices. It's an excellent example of a well-structured iOS application that can serve as a reference for both beginners and experienced developers.
 
 ## Features
 
