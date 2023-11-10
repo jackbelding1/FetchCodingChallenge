@@ -24,8 +24,6 @@
 		776BB8402AF9BD8700742E82 /* MealDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB83F2AF9BD8700742E82 /* MealDetailViewModelTest.swift */; };
 		776BB8432AF9C1E200742E82 /* MealSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776BB8422AF9C1E200742E82 /* MealSummaryView.swift */; };
 		777BD95F2AF6CF4B00EB56CC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD95E2AF6CF4B00EB56CC /* Kingfisher */; };
-		777BD9622AF6CF9500EB56CC /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9612AF6CF9500EB56CC /* OHHTTPStubs */; };
-		777BD9642AF6CF9500EB56CC /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 777BD9632AF6CF9500EB56CC /* OHHTTPStubsSwift */; };
 		777BD96B2AF6D0B400EB56CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777BD9692AF6D05200EB56CC /* XCTest.framework */; platformFilter = ios; };
 		777BD96C2AF6D0BD00EB56CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777BD9692AF6D05200EB56CC /* XCTest.framework */; platformFilter = ios; };
 		777BD9782AF6DD4100EB56CC /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BD9772AF6DD4100EB56CC /* ModelTests.swift */; };
@@ -90,8 +88,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				777BD95F2AF6CF4B00EB56CC /* Kingfisher in Frameworks */,
-				777BD9642AF6CF9500EB56CC /* OHHTTPStubsSwift in Frameworks */,
-				777BD9622AF6CF9500EB56CC /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,8 +313,6 @@
 			name = FetchCodingChallenge;
 			packageProductDependencies = (
 				777BD95E2AF6CF4B00EB56CC /* Kingfisher */,
-				777BD9612AF6CF9500EB56CC /* OHHTTPStubs */,
-				777BD9632AF6CF9500EB56CC /* OHHTTPStubsSwift */,
 			);
 			productName = FetchCodingChallenge;
 			productReference = 772568D32AF57AF400B1A71B /* FetchCodingChallenge.app */;
@@ -399,8 +393,6 @@
 			mainGroup = 772568CA2AF57AF400B1A71B;
 			packageReferences = (
 				777BD95D2AF6CF4B00EB56CC /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				777BD9602AF6CF9500EB56CC /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
-				776BB8242AF9AA5700742E82 /* XCRemoteSwiftPackageReference "SwiftMock" */,
 			);
 			productRefGroup = 772568D42AF57AF400B1A71B /* Products */;
 			projectDirPath = "";
@@ -791,28 +783,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		776BB8242AF9AA5700742E82 /* XCRemoteSwiftPackageReference "SwiftMock" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mflint/SwiftMock.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		777BD95D2AF6CF4B00EB56CC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.0.0;
-			};
-		};
-		777BD9602AF6CF9500EB56CC /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -822,16 +798,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 777BD95D2AF6CF4B00EB56CC /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		777BD9612AF6CF9500EB56CC /* OHHTTPStubs */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 777BD9602AF6CF9500EB56CC /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
-			productName = OHHTTPStubs;
-		};
-		777BD9632AF6CF9500EB56CC /* OHHTTPStubsSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 777BD9602AF6CF9500EB56CC /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
-			productName = OHHTTPStubsSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
