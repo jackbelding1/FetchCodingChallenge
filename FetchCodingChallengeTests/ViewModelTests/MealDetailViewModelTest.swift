@@ -8,10 +8,16 @@
 import XCTest
 @testable import FetchCodingChallenge
 
+// MARK: - Meal Detail View Model Tests
+
 class MealDetailViewModelTests: XCTestCase {
+    
+    // MARK: - Properties
     
     var viewModel: MealDetailViewModel!
     var mockRepository: MockMealRepository!
+    
+    // MARK: - Setup and Teardown
     
     override func setUp() {
         super.setUp()
@@ -25,16 +31,16 @@ class MealDetailViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: Fetching Meal Detail Success
+    
     func testFetchingMealDetailSuccess() {
-        // Given
         let expectation = XCTestExpectation(description: "Meal detail fetched successfully")
         mockRepository = MockMealRepository()
         mockRepository.shouldReturnSuccess = true
         viewModel = MealDetailViewModel(repository: mockRepository, mealID: "1")
-        // When
+
         viewModel.loadMealDetail()
         
-        // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertFalse(self.viewModel.isLoading)
             XCTAssertNotNil(self.viewModel.mealDetail)
@@ -44,18 +50,17 @@ class MealDetailViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
     
+    // MARK: Fetching Meal Detail Failure
+    
     func testFetchingMealDetailFailure() {
-        // Given
         let expectation = XCTestExpectation(description: "Meal detail fetching failed")
         mockRepository = MockMealRepository()
         mockRepository.shouldReturnSuccess = false
         viewModel = MealDetailViewModel(repository: mockRepository, mealID: "1")
         viewModel.mealDetail = nil
         
-        // When
         viewModel.loadMealDetail()
 
-        // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             XCTAssertFalse(self.viewModel.isLoading)
             XCTAssertNil(self.viewModel.mealDetail)
@@ -65,5 +70,4 @@ class MealDetailViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
     
-    // Add more tests as necessary to cover the functionality of the view model.
 }

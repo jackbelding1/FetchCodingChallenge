@@ -8,19 +8,20 @@
 import Foundation
 @testable import FetchCodingChallenge
 
+// MARK: - Mock Meal Repository
+
 class MockMealRepository: MealRepositoryProtocol {
-    var shouldReturnSuccess: Bool = true
     
+    // MARK: - Properties
+    
+    var shouldReturnSuccess: Bool = true
     var mockMealSummaries: [MockMealSummary] = []
+    
+    // MARK: - Methods
     
     func fetchMealSummaries(completion: @escaping (Result<[any MealSummaryProtocol], Error>) -> Void) {
         if shouldReturnSuccess {
-            // Hardcoded successful response using the mock models
-            let mockSummaries = [
-                MockMealSummary(idMeal: "1", strMeal: "Mock Meal 1", strMealThumb: "MockThumbURL1"),
-                MockMealSummary(idMeal: "2", strMeal: "Mock Meal 2", strMealThumb: "MockThumbURL2")
-            ]
-            completion(.success(mockSummaries as [any MealSummaryProtocol]))
+            completion(.success(mockMealSummaries as [any MealSummaryProtocol]))
         } else {
             // Hardcoded failure response
             completion(.failure(NSError(domain: "com.example.error", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch meal summaries."])))

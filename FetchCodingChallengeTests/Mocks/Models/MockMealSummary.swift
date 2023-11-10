@@ -8,11 +8,18 @@
 import Foundation
 @testable import FetchCodingChallenge
 
+// MARK: - Mock Meal Summary
+
 class MockMealSummary: MealSummaryProtocol {
+    
+    // MARK: - Properties
+    
     var id: String { idMeal }
     var idMeal: String
     var strMeal: String?
     var strMealThumb: String?
+    
+    // MARK: - Initializer
 
     init(idMeal: String, strMeal: String?, strMealThumb: String?) {
         self.idMeal = idMeal

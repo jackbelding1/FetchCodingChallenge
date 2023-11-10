@@ -7,7 +7,9 @@
 
 import XCTest
 
-final class MealSummaryViewTest: XCTestCase {
+final class ComprehensiveUITests: XCTestCase {
+    
+    // MARK: - Meal Summary Grid Display Tests
 
     func testMealSummaryGridItemDisplay() {
         let app = XCUIApplication()
@@ -26,6 +28,8 @@ final class MealSummaryViewTest: XCTestCase {
         XCTAssertTrue(firstItem.staticTexts.count > 0, "The meal summary item should have text.")
         XCTAssertTrue(firstItem.images.count > 0, "The meal summary item should have an image.")
     }
+    
+    // MARK: - Navigation to Meal Detail View Tests
 
     func testNavigationToMealDetailView() {
         let app = XCUIApplication()
@@ -45,6 +49,8 @@ final class MealSummaryViewTest: XCTestCase {
         XCTAssertTrue(app.staticTexts["mealDetailInstructionsView"].exists, "The instructions view should be displayed")
         XCTAssertTrue(app.buttons["mealDetailAdditionalInfoView"].exists, "The additional info view should be present")
     }
+    
+    // MARK: - Navigation Back from Meal Detail View Tests
     
     func testNavigateBackFromMealDetailView() {
         let app = XCUIApplication()
